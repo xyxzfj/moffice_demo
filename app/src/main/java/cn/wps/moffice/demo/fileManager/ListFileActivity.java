@@ -20,10 +20,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -36,7 +34,6 @@ import cn.wps.moffice.demo.menu.ListViewParamActivity;
 import cn.wps.moffice.demo.menu.OpenWayParamActivity;
 import cn.wps.moffice.demo.test.AutoTest;
 import cn.wps.moffice.demo.util.Define;
-import cn.wps.moffice.demo.util.MyGestureListener;
 import cn.wps.moffice.demo.util.SettingPreference;
 
 public class ListFileActivity extends ListActivity
@@ -84,7 +81,8 @@ public class ListFileActivity extends ListActivity
 
 			// 打开文档流
 			Uri docUri = null;
-			openUri(docUri);
+			Bundle bundle = getCallingIntentBundle();
+			openUri(docUri, bundle);
 	    }
 
 	    @Override
@@ -321,15 +319,13 @@ public class ListFileActivity extends ListActivity
 		  return true;
 	  }
 
-	  Bundle bundle = getBundle(path);
-	  Intent intent = getIntent(path);
+	  Bundle bundle = getBundleWithPath(path);
 	  Uri uri = getUri(path);
 
-	  return openUri(uri, bundle, intent);
+	  return openUri(uri, bundle);
   	}
 
-	private Bundle getBundle(String path) {
-
+	private Bundle getCallingIntentBundle() {
 		//获得上次打开的文件信息
 		String 	closeFilePath 	= settingPreference.getSettingParam(Define.CLOSE_FILE, "null");
 		String 	packageName   	= settingPreference.getSettingParam(Define.THIRD_PACKAGE, getPackageName());
@@ -367,6 +363,22 @@ public class ListFileActivity extends ListActivity
 //	    bundle.putString(Define.USER_NAME, userName);
 //		bundle.putString(Define.CHECK_PACKAGE_NAME, "cn.wps.moffice");
 //		bundle.putString(Define.JSON_DATA, JSON_DATA);              //特殊需求，直接跳过agent，连接client参数
+
+		return bundle;
+	}
+	private Bundle getBundleWithPath(String path) {
+
+		Bundle bundle = getCallingIntentBundle();
+
+		//获得上次打开的文件信息
+		String 	closeFilePath 	= settingPreference.getSettingParam(Define.CLOSE_FILE, "null");
+		float 	ViewProgress 	= settingPreference.getSettingParam(Define.VIEW_PROGRESS, (float)0.0);
+		float 	ViewScale 		= settingPreference.getSettingParam(Define.VIEW_SCALE, (float)1.0);
+		int 		ViewScrollX 	= settingPreference.getSettingParam(Define.VIEW_SCROLL_X, 0);
+		int 		ViewScrollY 	= settingPreference.getSettingParam(Define.VIEW_SCROLL_Y ,0);
+		boolean   IsViewScale     = settingPreference.getSettingParam(Define.IS_VIEW_SCALE ,false);
+		boolean   AutoJump		= settingPreference.getSettingParam(Define.AUTO_JUMP, false);
+
 		if (path.equals(closeFilePath))						       //如果打开的文档时上次关闭的
 		{
 			if (IsViewScale)
@@ -382,7 +394,7 @@ public class ListFileActivity extends ListActivity
 		return  bundle;
 	}
 
-	private Intent getIntent(String path) {
+	private Intent getCallingIntent() {
 		Intent intent = new Intent();
 
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -422,8 +434,8 @@ public class ListFileActivity extends ListActivity
 		return  uri;
 	}
 
-	private boolean openUri(Uri uri, Bundle bundle, Intent intent) {
-
+	private boolean openUri(Uri uri, Bundle bundle) {
+		Intent intent = getCallingIntent();
 		intent.setData(uri);
 		intent.putExtras(bundle);
 
