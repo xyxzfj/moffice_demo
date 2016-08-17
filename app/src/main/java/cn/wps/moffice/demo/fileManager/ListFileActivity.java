@@ -65,31 +65,31 @@ public class ListFileActivity extends ListActivity
 	    {
 	        super.onCreate( savedInstanceState );
 
-//	        currentParent = root;
-//			currentFiles = root.listFiles();
-//			if (sort.hideFileNum(currentFiles) == currentFiles.length)
-//			{//如果目录下都是隐藏文件就返回
-//				Toast.makeText(this,"当前路径下没有文件", Toast.LENGTH_LONG).show();
-//				return;
-//			}
-//			currentFiles = sort.sort(currentFiles);
-//			setListAdapter(new EfficientAdapter(this, currentFiles));
+	        currentParent = root;
+			currentFiles = root.listFiles();
+			if (sort.hideFileNum(currentFiles) == currentFiles.length)
+			{//如果目录下都是隐藏文件就返回
+				Toast.makeText(this,"当前路径下没有文件", Toast.LENGTH_LONG).show();
+				return;
+			}
+			currentFiles = sort.sort(currentFiles);
+			setListAdapter(new EfficientAdapter(this, currentFiles));
 
-//	        //启动service
-//	        Intent intent = new Intent( this, MOfficeClientService.class);
-//	        startService( intent );
+	        //启动service
+	        Intent intent = new Intent( this, MOfficeClientService.class);
+	        startService( intent );
 
 	        //实现将第三方包名写入文件，以便wps读取
 	        settingPreference = new SettingPreference(this);
 	        settingPreference.setSettingParam(Define.KEY, getPackageName());
 
+
 			// 打开文档流
-			Uri docUri = Uri.parse(PipeProvider.CONTENT_URI + "test.pdf");
+			// TODO: 打开删除文件自身、不保留痕迹等选项
+			Uri docUri = Uri.parse(PipeProvider.CONTENT_URI + "wps_api.doc");
 			Bundle bundle = getCallingIntentBundle();
 			openUri(docUri, bundle);
-
-			finish();
-	    }
+		}
 
 	    @Override
 	    public void onResume()
@@ -346,9 +346,9 @@ public class ListFileActivity extends ListActivity
 		String	OpenMode		= settingPreference.getSettingParam(Define.OPEN_MODE, null);
 		boolean   SendSaveBroad   = settingPreference.getSettingParam(Define.SEND_SAVE_BROAD, false);
 		boolean   SendCloseBroad  = settingPreference.getSettingParam(Define.SEND_CLOSE_BROAD, false);
-		boolean   IsIsClearBuffer = settingPreference.getSettingParam(Define.IS_CLEAR_BUFFER, false);
-		boolean   IsClearTrace 	= settingPreference.getSettingParam(Define.IS_CLEAR_TRACE, false);
-		boolean   IsClearFile 	= settingPreference.getSettingParam(Define.IS_CLEAR_FILE, false);
+		boolean   IsIsClearBuffer = settingPreference.getSettingParam(Define.IS_CLEAR_BUFFER, true);
+		boolean   IsClearTrace 	= settingPreference.getSettingParam(Define.IS_CLEAR_TRACE, true);
+		boolean   IsClearFile 	= settingPreference.getSettingParam(Define.IS_CLEAR_FILE, false); // TODO: true
 		boolean   IsViewScale     = settingPreference.getSettingParam(Define.IS_VIEW_SCALE ,false);
 		boolean   AutoJump		= settingPreference.getSettingParam(Define.AUTO_JUMP, false);
 		boolean   EnterReviseMode = settingPreference.getSettingParam(Define.ENTER_REVISE_MODE, false);
