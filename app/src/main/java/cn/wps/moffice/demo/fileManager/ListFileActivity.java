@@ -65,19 +65,19 @@ public class ListFileActivity extends ListActivity
 	    {
 	        super.onCreate( savedInstanceState );
 
-	        currentParent = root;
-			currentFiles = root.listFiles();
-			if (sort.hideFileNum(currentFiles) == currentFiles.length)
-			{//如果目录下都是隐藏文件就返回
-				Toast.makeText(this,"当前路径下没有文件", Toast.LENGTH_LONG).show();
-				return;
-			}
-			currentFiles = sort.sort(currentFiles);
-			setListAdapter(new EfficientAdapter(this, currentFiles));
+//	        currentParent = root;
+//			currentFiles = root.listFiles();
+//			if (sort.hideFileNum(currentFiles) == currentFiles.length)
+//			{//如果目录下都是隐藏文件就返回
+//				Toast.makeText(this,"当前路径下没有文件", Toast.LENGTH_LONG).show();
+//				return;
+//			}
+//			currentFiles = sort.sort(currentFiles);
+//			setListAdapter(new EfficientAdapter(this, currentFiles));
 
-	        //启动service
-	        Intent intent = new Intent( this, MOfficeClientService.class);
-	        startService( intent );
+//	        //启动service
+//	        Intent intent = new Intent( this, MOfficeClientService.class);
+//	        startService( intent );
 
 	        //实现将第三方包名写入文件，以便wps读取
 	        settingPreference = new SettingPreference(this);
@@ -87,6 +87,8 @@ public class ListFileActivity extends ListActivity
 			Uri docUri = Uri.parse(PipeProvider.CONTENT_URI + "test.pdf");
 			Bundle bundle = getCallingIntentBundle();
 			openUri(docUri, bundle);
+
+			finish();
 	    }
 
 	    @Override
