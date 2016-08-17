@@ -84,6 +84,7 @@ public class EditDocument extends Service
 		// bind service
 		final Intent intent = new Intent(OFFICE_SERVICE_ACTION);
 		intent.putExtra("DisplayView", true);
+		intent.setPackage(this.getPackageName());
 		if (!bindService(intent, connection, Service.BIND_AUTO_CREATE)) {
 			unbindService(connection);
 			return false;

@@ -267,6 +267,7 @@ public class FloatingServiceHideView extends Service implements OnClickListener 
 		// bind service
 		final Intent intent = new Intent(Define.OFFICE_SERVICE_ACTION);
 		intent.putExtra("DisplayView", false);
+		intent.setPackage(this.getPackageName());
 		if (!bindService(intent, connection, Service.BIND_AUTO_CREATE)) {
 			// bind failed, maybe wps office is not installd yet.
 			unbindService(connection);
