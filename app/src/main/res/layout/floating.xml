@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/floating"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00FF0000"
+    android:orientation="horizontal" >
+
+   <LinearLayout
+        android:id="@+id/Lin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical" >
+        <TextView
+            android:id="@+id/filename"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:ellipsize="marquee"
+            android:gravity="right"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+			android:focusable="true" 
+            android:textColor="#FFFFFF" />
+ 		<Button
+            android:id="@+id/btnHide"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/hideAll"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+ 		
+        <Button
+            android:id="@+id/btnCloseWindow"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/closeWindow"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        
+
+        <Button
+            android:id="@+id/btnNew"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/newDocument"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOpen"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/open"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+			
+        <Button
+            android:id="@+id/btnAddPic"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/addPic"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/save"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSaveAs"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/saveAs"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOpenHandWriter"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/openHandWrite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCloseHandWriter"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/closeHandWrite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/close"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		<Button
+            android:id="@+id/btnInsertParagraph"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/insertParagraph"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnCopy"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/copy"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		<Button
+            android:id="@+id/btnPaste"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/paste"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		<Button
+            android:id="@+id/btnCut"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/cut"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		<Button
+            android:id="@+id/btnAddPicture"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/adPicture"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		
+		<Button
+            android:id="@+id/btnIsModi"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/isModi"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnTypeText"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/typeText"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnGetText"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/getText"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnHiddenToolBar"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/hiddenToolBar"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnHiddenMenuBar"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/hiddenMenuBar"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnEnterReviseMode"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/enterReviseMode"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnExitReviseMode"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/exitReviseMode"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+		<Button
+            android:id="@+id/btnAcceptAllRevision"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/acceptAllRevision"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		
+        <Button
+            android:id="@+id/btnCleanCopy"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/cleanCopy"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+		<Button
+            android:id="@+id/btnShowOther"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/showOther"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/cleanCopyRecordView"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+    </LinearLayout>
+
+</LinearLayout>

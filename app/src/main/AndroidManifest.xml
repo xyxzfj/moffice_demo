@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.wps.moffice.demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="3"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+         <activity
+            android:name="cn.wps.moffice.demo.fileManager.ListFileActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.wps.moffice.demo.MOfficeDemoActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="cn.wps.moffice.demo.test.AutoTest"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="cn.wps.moffice.demo.menu.ListViewParamActivity"
+            android:label="settingList" >
+        </activity>
+        
+        <activity
+            android:name="cn.wps.moffice.demo.menu.OpenWayParamActivity"
+            android:label="settingList" >
+        </activity>
+        
+        <activity
+            android:name="cn.wps.moffice.demo.menu.AIDLParamActivity"
+            android:label="settingList" >
+        </activity>
+        
+        <activity
+            android:name="cn.wps.moffice.demo.menu.ATEditParamActivity"
+            android:label="settingList" >
+        </activity>
+        
+        <service android:name="cn.wps.moffice.demo.agent.AgentMessageService" >
+            <intent-filter>
+                <action android:name="cn.wps.moffice.agent.OfficeServiceAgent" >
+                </action>
+            </intent-filter>
+        </service>
+        <service android:name="cn.wps.moffice.demo.client.MOfficeClientService" >
+            <intent-filter>
+                <action android:name="cn.wps.moffice.client.OfficeServiceClient" />
+            </intent-filter>
+        </service>
+        
+        <service
+            android:name="cn.wps.moffice.demo.floatingview.service.FloatingService"
+            android:enabled="true"
+            android:exported="true" >        
+        </service>
+        
+        <service
+            android:name="cn.wps.moffice.demo.floatingview.service.FloatingServiceHideView"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <receiver android:name="cn.wps.moffice.demo.broad.CloseReceiver" >
+            <intent-filter>
+                <action android:name="cn.wps.moffice.file.close" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.wps.moffice.demo.broad.SaveReceiver" >
+            <intent-filter>
+                <action android:name="cn.wps.moffice.file.save" />
+            </intent-filter>
+        </receiver>
+         <receiver android:name="cn.wps.moffice.demo.broad.BackKeyReceiver" >
+            <intent-filter>
+                <action android:name="com.kingsoft.writer.back.key.down" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.wps.moffice.demo.broad.HomeKeyReceiver" >
+            <intent-filter>
+                <action android:name="com.kingsoft.writer.home.key.down" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
