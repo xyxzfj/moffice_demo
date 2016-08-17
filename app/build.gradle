@@ -6,7 +6,6 @@ android {
 
     defaultConfig {
         applicationId "cn.wps.moffice.demo"
-        minSdkVersion 3
         targetSdkVersion 24
     }
 
@@ -21,4 +20,5 @@ android {
 dependencies {
     compile files('libs/moffice-aidl.jar')
     compile files('libs/moffice-event-interface.jar')
+    compile project(':pipe')
 }

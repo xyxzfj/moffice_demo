@@ -5,8 +5,6 @@
  * 	作用：文件列表显示，并响应打开wps文件等一系列动作
  */
 package cn.wps.moffice.demo.fileManager;
-import java.io.File;
-import java.io.IOException;
 
 import android.app.ListActivity;
 import android.content.ActivityNotFoundException;
@@ -25,6 +23,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.commonsware.android.cp.pipe.PipeProvider;
+
+import java.io.File;
+import java.io.IOException;
+
 import cn.wps.moffice.demo.client.MOfficeClientService;
 import cn.wps.moffice.demo.floatingview.service.FloatingService;
 import cn.wps.moffice.demo.floatingview.service.FloatingServiceHideView;
@@ -80,7 +84,7 @@ public class ListFileActivity extends ListActivity
 	        settingPreference.setSettingParam(Define.KEY, getPackageName());
 
 			// 打开文档流
-			Uri docUri = null;
+			Uri docUri = Uri.parse(PipeProvider.CONTENT_URI + "test.pdf");
 			Bundle bundle = getCallingIntentBundle();
 			openUri(docUri, bundle);
 	    }
