@@ -370,6 +370,23 @@ public class ListFileActivity extends ListActivity
 //		bundle.putString(Define.CHECK_PACKAGE_NAME, "cn.wps.moffice");
 //		bundle.putString(Define.JSON_DATA, JSON_DATA);              //特殊需求，直接跳过agent，连接client参数
 
+		// demo: 防止文档外泄
+		bundle.putBoolean(Define.AT_SAVE, false);
+		bundle.putBoolean(Define.AT_SAVEAS, false);
+		bundle.putBoolean(Define.AT_COPY, false);
+		bundle.putBoolean(Define.AT_CUT, false);
+		bundle.putBoolean(Define.AT_PASTE, false);
+		bundle.putBoolean(Define.AT_EDIT_TEXT, false);
+		bundle.putBoolean(Define.AT_EDIT_PICTURE, false);
+		bundle.putBoolean(Define.AT_EDIT_SHAPE, false);
+		bundle.putBoolean(Define.AT_EDIT_CHART, false);
+		bundle.putBoolean(Define.AT_SHARE, false);
+		bundle.putBoolean(Define.AT_PRINT, false);
+		bundle.putBoolean(Define.AT_SPELLCHECK, false);
+		bundle.putBoolean(Define.AT_QUICK_CLOSE_REVISEMODE, false);
+		bundle.putBoolean(Define.AT_MULTIDOCCHANGE, false);
+		bundle.putBoolean(Define.AT_EDIT_REVISION, false);
+
 		return bundle;
 	}
 	private Bundle getBundleWithPath(String path) {

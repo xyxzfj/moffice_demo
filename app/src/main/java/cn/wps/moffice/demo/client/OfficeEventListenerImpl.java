@@ -1,6 +1,9 @@
 package cn.wps.moffice.demo.client;
 
 
+import android.os.RemoteException;
+import android.util.Log;
+
 import cn.wps.moffice.client.ActionType;
 import cn.wps.moffice.client.OfficeEventListener;
 import cn.wps.moffice.client.OfficeInputStream;
@@ -8,8 +11,6 @@ import cn.wps.moffice.client.OfficeOutputStream;
 import cn.wps.moffice.demo.util.Define;
 import cn.wps.moffice.demo.util.EncryptClass;
 import cn.wps.moffice.demo.util.SettingPreference;
-import android.os.RemoteException;
-import android.util.Log;
 
 public class OfficeEventListenerImpl extends OfficeEventListener.Stub 
 {
@@ -71,7 +72,7 @@ public class OfficeEventListenerImpl extends OfficeEventListener.Stub
 			}
 			return true;
 		}
-		
+
 		boolean	 typeAT 	= 	settingPreference.getSettingParam(type.toString(), true);
 		String	 pathAT 	= 	settingPreference.getSettingParam(Define.AT_PATH, "/");
 		boolean  isExist 	= 	path.startsWith(pathAT) || path.equals("");  //有部分事件传过来路径为"",
