@@ -343,7 +343,7 @@ public class ListFileActivity extends ListActivity
 //	  String userName           = settingPreference.getSettingParam(Define.USER_NAME, "");
 //      String 	packageName 	= getPackageName();
 		//获取用户设置的参数信息
-		String	OpenMode		= settingPreference.getSettingParam(Define.OPEN_MODE, null);
+		String	OpenMode		= settingPreference.getSettingParam(Define.OPEN_MODE, Define.READ_ONLY);
 		boolean   SendSaveBroad   = settingPreference.getSettingParam(Define.SEND_SAVE_BROAD, false);
 		boolean   SendCloseBroad  = settingPreference.getSettingParam(Define.SEND_CLOSE_BROAD, false);
 		boolean   IsIsClearBuffer = settingPreference.getSettingParam(Define.IS_CLEAR_BUFFER, true);
